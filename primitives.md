@@ -65,3 +65,28 @@ Commit the following to your repository:
 - Two (2) neighborhood-pixel filters
 - Corresponding modifications to the web application code that demonstrate these improvements
 - (optionally) Code that creates a different `canvas` image for the filters
+
+## Specific Point Allocations
+This assignment is scored according to outcomes _1a_, _2c_, _3b_, and _4a_–_4f_ in the [syllabus](http://dondi.lmu.build/spring2021/cmsi371/cmsi371-spring2021-syllabus.pdf). For this particular assignment, graded categories are as follows:
+
+| Category | Points | Outcomes |
+| -------- | -----: | -------- |
+| Graphics primitive gradient | 50 points total, up to 20 extra credit | _1a_, _2c_, _3b_, _4a_–_4d_ |
+| • Implemented correctly and well | 30 points, up to 10 extra credit | |
+| • Demonstrated effectively | 20 points, up to 10 extra credit | |
+| Single-pixel filters | 20 points total | _1a_, _2c_, _3b_, _4a_–_4d_ |
+| • Implemented correctly and well | 7 points each, 14 points total | |
+| • Demonstrated effectively | 3 points each, 6 points total | |
+| Neighborhood filters | 30 points total | _1a_, _2c_, _3b_, _4a_–_4d_ |
+| • Implemented correctly and well | 12 points each, 24 points total | |
+| • Demonstrated effectively | 3 points each, 6 points total | |
+| • Genuinely uses neighborhood | deduction only (if not done) | |
+| Custom `canvas` picture for filter demos | up to 20 points extra credit | _4a_–_4d_ |
+| • Well-suited for image filters | reduced extra credit (if not done) | |
+| Hard-to-maintain or error-prone code | deduction only | _4b_ |
+| Hard-to-read code | deduction only | _4c_ |
+| Version control | deduction only | _4e_ |
+| Punctuality | deduction only | _4f_ |
+| **Total** | **100** |
+
+Note that inability to compile and run any code to begin with will negatively affect other criteria, because if we can’t run your code (or commands), we can’t evaluate related remaining items completely.
