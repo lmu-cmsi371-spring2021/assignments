@@ -9,16 +9,16 @@ This assignment’s supporting content is virtually all mathematical—[Shirley/
 * _Chapter 5: Linear Algebra_
 * _Chapter 6: Transformation Matrices_
 
-The sample code includes a [vector](https://github.com/dondi/bazaar/tree/master/vector) implementation with accompanying test suite. It will be useful to understand this code well before going all Morpheus (or Neo?) on your own.
+The sample code includes a [vector](https://github.com/dondi/bazaar/tree/master/vector) implementation with accompanying test suite. It will be useful to understand this code well before going all Morpheus (or Neo?) on your own. And don’t forget the potential conciseness offered by JavaScript [getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get) and [setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set), as mentioned in the [companion assignment](./static-3d-scene.md).
 
 ## For Submission: Enter the Matrix
-This assignment focuses on implementing matrix transformations—the core geometric engine of any graphics pipeline. The core functionality should be a distinct, independent module, with the 3D object framework from the companion assignment meant to use this module to round out the “version 1” functionality of a rudimentary scene library.
+This assignment focuses on implementing matrix transformations—the core geometric engine of any graphics pipeline. The core functionality should be a distinct, independent module, with the 3D object framework from the [companion assignment](./static-3d-scene.md) meant to use this module to round out the “version 1” functionality of a rudimentary scene library.
 
 ### Build the Matrix
 Design and implement a computer graphics matrix library with an accompanying suite of unit tests. As with the 3D object framework, no specific design is mandated. However, the following capabilities should be provided:
-- A basic matrix object that initializes, by default, to the identity matrix
+- A basic 4×4 matrix object that initializes, by default, to the identity matrix
 - Matrix multiplication
-- Collection of 3D matrix implementations
+- Collection of 3D matrix implementations (contributed individually)
   * 3D translation
   * 3D scale
   * 3D rotation about on an arbitrary axis (you may refactor the sample code to fit your matrix object implementation)
@@ -30,29 +30,29 @@ Note that there are enough matrix categories to go around individually, so this 
 
 _All_ of these matrices are required, so matrices that aren’t an individual responsibility will reside with the group.
 
-Need some inspiration? Think of yourself as [taking control of your vertices the way Neo controls a hail of bullets](https://www.youtube.com/watch?v=dEn9vzW0Lc4)🕴
+Need some inspiration? Think of yourself as [taking control of your vertices the way Neo controls a hail of bullets](https://www.youtube.com/watch?v=dEn9vzW0Lc4)🕴Can’t go wrong with the most excellent Keanu Reeves amirite?
 
 ### Test the Matrix
 This item is sufficiently important to deserve its own section:
 - A unit test suite based on [Jest](https://jestjs.io) (courtesy of React)
 
-The reason for the test suite’s importance is the reality that the aforementioned matrix functionality is fairly cut-and-dried; it will not be hard to find implementations on the web and in the textbook. Thus, what makes _your_ implementation different will be the specific design choices that you make for your library _and its test suite_. Use the test suite’s coverage to demonstrate your understanding of matrices and transformations.
+As pure computations with unambiguous correct results and requiring no interaction with the user, matrix functionality is eminently easy to test. [Jest](https://jestjs.io)’s approach makes it even more convenient: run `yarn test`, keep it running, then write your code and tests. You will see test results as you work. By default, you will only see tests for files changed since the last commit, but if you invoke `yarn test -- --coverage --watchAll`, you will see all tests at all times, complete with a coverage report showing how much of each module was executed by your test suite.
 
-Like the matrix implementations themselves, responsibility for tests is individualized, corresponding to the matrix that a particular group member took point on. Matrix types that are implemented by the group are the responsibility of the group.
+Like the 4×4 matrix implementations themselves, responsibility for tests is individualized, corresponding to the matrix that a particular group member took point on. Matrix types that are implemented by the group are the responsibility of the group.
 
 ### Apply the Matrix
-Armed with your newly-minted matrix library, enhance your 3D framework from Assignment 0330a in the following ways:
-- Give your 3D objects an _instance transformation_: A per-object composition of rotate, scale, and translate matrices that will let you position objects in the scene and within groups. This matrix will be sent to the vertex shader—they are just _stored_ in JavaScript, but GLSL will perform the actual transformation (as it should—that’s why we have graphics hardware!) …note that five-member groups are asked to [do both](#one-more-thing)
-- The 3D object grouping functionality from the companion assignment gets most of its power from the instance transformation: a 3D object group’s members _build their instance transformations on top of the parent’s_. This is the secret to how composite objects “stay together” when the full group is repositioned, rotated, or scaled
+Armed with your newly-minted matrix library, enhance your 3D framework from the [companion assignment](./static-3d-scene.md) in the following ways:
+- Give your 3D objects an _instance transformation_: A per-object composition of rotate, scale, and translate matrices that will let you position objects in the scene and within groups. This matrix will be sent to the vertex shader—they are just _stored_ in JavaScript, but GLSL will perform the actual transformation (as it should—that’s why we have graphics hardware!)
+- The 3D object grouping functionality from the [companion assignment](./static-3d-scene.md) gets most of its power from the instance transformation: a 3D object group’s members _build their instance transformations on top of the parent’s_. This is the secret to how composite objects “stay together” when the full group is repositioned, rotated, or scaled
 - Don’t forget that 3D object groups are _trees_ and can go arbitrarily deeply (e.g., you can group fingers with a palm to form a hand; that hand can be added to an arm; that arm can be added to a body, etc.), so the instance transformations should compose accordingly as well
 
 The key idea here is to have, after this portion is done, a complete “construction set” of sorts for creating, composing, and now transforming your scene objects in a manner that is limited solely by your imagination.
 
-### Project the Matrix
-The second major capability afforded by your matrix library will now be the ability to break out of that 2×2×2 cube thanks to the availability of projection matrices. Do take advantage of them when ready in your stub scene drawing code.
-
 ### Use the Matrix
-Once you reach this point, you now have all of the pieces needed to create a _complete 3D scene_ from your 3D object and matrix framework (the companion assignment, by itself, is unable to change objects once they are created—that’s why it’s static; this assignment makes it dynamic). Use instance transformations to position, rotate, and resize the objects in your scene. Use the composite/group ability to build more complex objects that transform as a unit. Modify these transformations by calling `requestAnimationFrame` repeatedly, changing the matrices, then re-rendering the scene. Welcome to the foundational technologies behind [bullet time](https://www.youtube.com/watch?v=I1ZbUs1xwes).
+Once you reach this point, you now have all of the pieces needed to create a _complete 3D scene_ from your 3D object and matrix framework (the [companion assignment](./static-3d-scene.md), by itself, is unable to manipulate objects easily once they are created—that’s why it’s static; this assignment makes it dynamic). Use instance transformations to position, rotate, and resize the objects in your scene. Use the composite/group ability to build more complex objects that transform as a unit. Modify these transformations by calling `requestAnimationFrame` repeatedly, changing the matrices, then re-rendering the scene. Welcome to the foundational computations behind [bullet time](https://www.youtube.com/watch?v=I1ZbUs1xwes).
+
+### Project the Matrix
+The second major capability afforded by your matrix library will now be the ability to break out of that normalized device coordinates (NDC) 2×2×2 cube thanks to the availability of projection matrices. Do take advantage of them when ready in your stub scene drawing code. This will also get you out of a square canvas without otherwise distorting the aspect ratio of your scene!
 
 ### “One More Thing”
 If you’re in a five-member group, you will implement one more matrix-related function in your 3D object framework: the ability to _morph_ the vertices “in-place.” This is simply the ability to multiply a transform matrix to every vertex in a shape _in JavaScript_, so that the _vertex coordinates themselves_ are permanently transformed. It’s a nice-to-have—it allows you to separate your transformation of an object into smaller steps. For example, you might want to scale a sphere so that it looks more egg-like, and then think of yourself as re-scaling that egg in the instance transformation for dynamic/animation purposes.
@@ -60,7 +60,7 @@ If you’re in a five-member group, you will implement one more matrix-related f
 Mathematically, multiple transformation steps all become one matrix anyway so four-member groups aren’t missing out functionality-wise. But the availability to pre-morph the vertices of an object based on a transformation is convenient if it’s there, and for five-member groups, it _has_ to be there.
 
 ### Extra Credit: JSON Representation
-The pros use tools to create their 3D objects and scenes—for extra credit, you can take a stab at implementing this capability.
+The pros use tools, not code, to create their 3D objects and scenes—for extra credit, you can take a stab at implementing this capability. (in those tools, code _generates_ objects but those objects, once generated, can be represented as pure data)
 
 Separate your 3D scene from the code by allowing it to be represented in JSON. Find a way to express and process the scene such that one or more of these capabilities is present:
 
@@ -69,12 +69,13 @@ Separate your 3D scene from the code by allowing it to be represented in JSON. F
   * Alternatively, custom vertices and faces may be listed directly
 - Properties that define a current instance transformation are available
 - Environment settings such as a viewing volume and projection type can be specified
+- Consider looking at established 3D model formats and represent your scenes according to that format—if you do this, your scenes and objects can then be loaded into other applications! Or, vice versa, you can load models from other applications into your own 3D library 🤯
 
 This functionality is somewhat open-ended so extra credit will be given commensurate with how much is (correctly) implemented.
 
 ## How to Turn it In
 Commit the following to your repository:
-- [Matrix object/library](#build-the-matrix)
+- [4×4 matrix object/library](#build-the-matrix)
   * Default to identity matrix
   * Matrix multiplication implementation
   * 3D matrix collection (mostly individual responsibility)
@@ -87,15 +88,15 @@ Commit the following to your repository:
   * 3D object groups compose children’s instance transformations recursively
   * For five-member groups: [3D objects can transform vertices in JavaScript](#one-more-thing)
 - [Matrix use in projection](#project-the-matrix)
-  * Orthographic or perspective projection can be applied to the scene (thus breaking it out of the 2×2×2 space)
+  * Orthographic or perspective projection can be applied to the scene (thus breaking it out of the NDC 2×2×2 space)
 - (extra credit) Ability to [represent a scene in JSON](#extra-credit-json-representation)
 
 ## Specific Point Allocations
-This assignment is scored according to outcomes _2a_, _2b_, _3a_, _3c_, _3d_, and –4a_–_4f_ in the syllabus. For this particular assignment, graded categories are as follows—points with parentheses indicate differences between four- and five-member groups:
+This assignment is scored according to outcomes _2a_, _2b_, _3a_, _3c_, _3d_, and _4a_–_4f_ in the syllabus. For this particular assignment, graded categories are as follows—points with parentheses indicate differences between four- and five-member groups:
 
 | Category | Points | Outcomes |
 | -------- | -----: | -------- |
-| Matrix object/library | 30 (26) points total | _2a_, _2b_, _4a_–_4d_ |
+| 4×4 matrix object/library | 30 (26) points total | _2a_, _2b_, _4a_–_4d_ |
 | • Default to identity matrix | 2 points | |
 | • Matrix multiplication is implemented | 8 points | |
 | • Group-based 3D matrix (group’s choice) | 4 (n/a) points | |
