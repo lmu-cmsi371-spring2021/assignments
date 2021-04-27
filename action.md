@@ -95,7 +95,7 @@ What won’t count:
 
 ### Statement of Work Retrospective
 * Reflect on your overall group graphics work for the entire “Our Own Library” sequence in a _group-retrospective.md_ document. Describe what each group member worked on through all of the assignments as well as this last pair of scenes
-* Write an individual email directly to me stating anything that you prefer not to include in the shared _statement-of-work.md_—even if you have nothing to add, _write to me anyway_, so I know that you didn’t miss a chance to speak up. So that I don’t miss it, use the subject line “CMSI 371 _group name_ individual statement of work”
+* Write an individual email directly to me stating anything that you prefer not to include in the shared _group-retrospective.md_—even if you have nothing to add, _write to me anyway_, so I know that you didn’t miss a chance to speak up. So that I don’t miss it, use the subject line “CMSI 371 _group name_ individual statement of work”
 
 The points for this deliverable pertain to _submission only_ and not its content. If warranted, individual adjustments to final grades may be made based on the information provided in these items.
 
