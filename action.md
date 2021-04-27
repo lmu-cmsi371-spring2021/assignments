@@ -74,6 +74,7 @@ When those videos are posted to Brightspace, all you need to do is watch them. B
 An open-ended pool of points can be awarded for extra credit if your 3D library implements features above and beyond the baseline for this part of the course. This is open-ended precisely because the possibilities are open-ended. Some parameters:
 * The feature cannot be something for which you have already received extra credit
 * Extra credit can be group or individual, and for the latter it must be very clear (either via the commit log or mutual acknowledgement by group members) that the extra feature was predominantly worked on by that individual
+* Make sure that the fundamentals (the other specifications requested earlier) are handled sufficiently before even _thinking_ about aiming for these “extra yearnings”—I reserve the right to withhold extra credit if this is attempted but something more basic has not been handled well
 
 Examples or possibilities include:
 * A more advanced/sophisticated lighting model
